@@ -1,5 +1,20 @@
+# python cache
 __pycache__
+**.pyc
+
+# Editor
 .vscode
+
+# Virtualenv
 venv
+Lib
+Scripts
+tcl
+
+# Enviroment files
 .env
+env
+
+# Database
 database.db
+
