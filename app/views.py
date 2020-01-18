@@ -1,5 +1,7 @@
+from flask import render_template, redirect, request
 from app import app
-from flask import render_template
+from app.models import Contact, Project, db
+from app.forms import ContactForm
 
 @app.route('/')
 def index():
@@ -13,6 +15,17 @@ def projects():
 def about():
     return render_template('public/about.html')
 
-@app.route('/contact')
+@app.route('/contact', methods = ['GET', 'POST'])
 def contact():
-    return render_template('public/contact.html')
+    form = ContactForm()
+    # validar correctamente los campos
+    if form.validate_on_submit():
+        data = request.form
+        reg = Contact(name = data.get('name'),email = data.get('email'),
+            message = data.get('message'))
+        db.session.add(reg)
+        db.session.commit()
+        return redirect('/success')
+
+
+    return render_template('public/contact.html', form = form)
