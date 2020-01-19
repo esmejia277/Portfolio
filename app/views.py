@@ -2,6 +2,7 @@ from flask import render_template, redirect, request
 from app import app
 from app.models import Contact, Project, db
 from app.forms import ContactForm
+from sqlalchemy import desc
 
 @app.route('/')
 def index():
@@ -9,7 +10,8 @@ def index():
 
 @app.route('/projects')
 def projects():
-    return render_template('public/projects.html')
+    project = Project.query.order_by(Project.programming_language.desc())
+    return render_template('public/projects.html', project = project)
 
 @app.route('/about')
 def about():

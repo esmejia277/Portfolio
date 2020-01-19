@@ -8,6 +8,7 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(50))
     description = db.Column(db.Text())
+    programming_language = db.Column(db.Text())
     url = db.Column(db.String(100))
 
 class Contact(db.Model):
