@@ -11,11 +11,17 @@
             <form method="POST" action="/contact">
                 {{ form.csrf_token }}
                 <div class="m-4">
-                    {% for field in form.errors %}
-                    {% for error in form.errors[field] %}
-                    <strong class="text-danger">Error! {{error}}</strong>
-                    {% endfor %}
-                    {% endfor %}
+                    <ul>
+                        {% for field in form.errors %}
+                            {% for error in form.errors[field] %}
+                                <li>
+                                    <strong class="text-danger">
+                                        Error! {{error}}
+                                    </strong>
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
                 </div>
 
                 <div class="form-group">

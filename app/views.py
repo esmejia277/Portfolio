@@ -20,7 +20,6 @@ def about():
 @app.route('/contact', methods = ['GET', 'POST'])
 def contact():
     form = ContactForm()
-    # validar correctamente los campos
     if form.validate_on_submit():
         data = request.form
         reg = Contact(name = data.get('name'),email = data.get('email'),
