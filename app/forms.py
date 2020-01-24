@@ -13,4 +13,4 @@ def validate_name(form, field):
 class ContactForm(FlaskForm):
     name = StringField(label='Name', validators=[ DataRequired(), validate_name])
     email = StringField(label='Email', validators=[ DataRequired(), Email() ])
-    message = TextAreaField(label='Message', validators=[ DataRequired(), Length(min=20) ])
+    message = TextAreaField(label='Message', validators=[ DataRequired(), Length(min=20, message="Message must be at least 20 characters long.") ])
