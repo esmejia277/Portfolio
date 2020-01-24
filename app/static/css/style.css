@@ -2,7 +2,17 @@
     font-family: 'Fira Code', monospace !important;
 }
 
-.form{
-    border-radius: 25px !important;
+.card {
+    display: flex;
+    text-align: center;
+    margin: 40px 15px 15px  15px;
+    border-width: 6px;
+    border-radius: 25px;
+    height: 90%;
+    
 }
 
+.all-cards {
+    display: flex;
+    justify-content: center;
+}
