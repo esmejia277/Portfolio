@@ -22,14 +22,19 @@
                         <br>
                         <br>
                         <div class="card-title text-center ">
-                            <p class="text-primary">
+                            <h4 class="text-primary">
                                 <strong>{{ x.title}}</strong>
-                            </p>
+                            </h4>
                         </div>
                         <p class="card-text">
                             {{x.description}}
                         </p>
-                        <a href="{{x.url}}" target="_blank" class="btn btn-primary btn-sm">Githup Repo</a>
+                        <p>
+                            <strong >
+                                Lenguaje: {{x.programming_language}}
+                            </strong>
+                        </p>
+                        <a href="{{x.url}}" target="_blank" class="btn btn-primary btn-md">Githup Repo</a>
                     </div>
                 </div>
             </div>
