@@ -24,3 +24,34 @@ a {
 a:hover {
     color: grey;
 }
+
+a > img {
+    border-radius: 50%;
+    width: 80px;
+    margin: 10px;
+}
+a > img:hover {
+    color: red;
+}
+
+.form {
+    border-radius: 25px;
+    padding: 50px;
+    overflow-wrap: break-word;
+}
+
+.social-media {
+    margin-top: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .head-form > h1 {
+        font-size: 25px;
+    }
+
+    .form {
+        overflow-wrap: break-word;
+    }
+
+  }
