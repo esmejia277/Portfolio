@@ -20,16 +20,28 @@
     <!-- <a class="navbar-brand" href="/"> Portafolio </a> -->
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">
+          <img class="navbar-icon" src="{{ url_for('static', filename='icons/053-home.png')}}" alt="icon" />
+          Home
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/about">About</a>
+        <a class="nav-link" href="/about">
+          <img class="navbar-icon" src="{{ url_for('static', filename='icons/071-smile-1.png')}}" alt="icon" />
+          About
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/projects">Projects</a>
+        <a class="nav-link" href="/projects">
+          <img class="navbar-icon" src="{{ url_for('static', filename='icons/101-briefcase.png')}}" alt="icon" />
+          Projects
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact</a>
+        <a class="nav-link" href="/contact">
+          <img class="navbar-icon" src="{{ url_for('static', filename='icons/162-edit.png')}}" alt="icon" />
+          Contact
+        </a>
       </li>
     </ul>
   </div>

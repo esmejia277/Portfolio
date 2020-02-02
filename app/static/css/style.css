@@ -19,17 +19,25 @@
 
 a {
     color: white;
+    
 }
 
 a:hover {
     color: grey;
 }
 
-a > img {
+/* a > img {
+    border-radius: 50%;
+    width: 80px;
+    margin: 10px;
+} */
+
+.social-media-icon {
     border-radius: 50%;
     width: 80px;
     margin: 10px;
 }
+
 a > img:hover {
     color: red;
 }
@@ -55,3 +63,8 @@ a > img:hover {
     }
 
   }
+
+.navbar-icon {
+    width: 25px;
+    filter: brightness(0) invert(1);
+}
