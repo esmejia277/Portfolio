@@ -17,4 +17,4 @@ env
 
 # Database
 database.db
-
+sqlite3
