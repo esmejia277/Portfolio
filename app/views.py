@@ -21,32 +21,28 @@ def about():
 
 @app.route('/contact', methods = ['GET', 'POST'])
 def contact():
-
     form = ContactForm()
-
     if form.validate_on_submit():
-
         name = request.form.get('name')
         email = request.form.get('email')
         message = request.form.get('message')
 
+        reg = Contact(name = name, email = email, message = message)
+        db.session.add(reg)
+        db.session.commit()
+
         html_message = """
-            <h1 class="bg-dark">New message from Portfolio!</h1>
+            <h1>New message from Portfolio!</h1>
             <h3>Contact data:</h3>
             <p>Name: {}</p>
             <p>Email: {}</p>
             <p>Message: {}</p>
         """.format(name, email, message)
         
-        message = Message(subject="New contact",
+        message_email = Message(subject="New contact",
             recipients=["estebanmejia277@gmail.com"],
             html= html_message
         )
-        mail.send(message=message)
-
-        reg = Contact(name, email, message)
-        db.session.add(reg)
-        db.session.commit()
-
-        # return redirect('/success')
+        mail.send(message=message_email)
+        #formulario enviado con exito, alert
     return render_template('public/contact.html', form = form)
