@@ -2,7 +2,7 @@
     font-family: 'Fira Code', monospace !important;
 }
 
-.card {
+.card-projects {
     display: flex;
     text-align: center;
     margin: 40px 15px 15px  15px;
@@ -11,7 +11,7 @@
     height: 90%;
 }
 
-.all-cards {
+.all-cards, .skills {
     display: flex;
     justify-content: center;
 }
@@ -56,4 +56,17 @@ a:hover {
 .navbar-icon {
     width: 25px;
     filter: brightness(0) invert(1);
+}
+
+
+.skills-img {
+    display: flex;
+    /* width: 80%; */
+    margin: auto;
+}
+
+.card-about {
+    display: flex;
+    margin: 40px 15px 15px  15px;
+    border: none;
 }

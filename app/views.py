@@ -17,7 +17,22 @@ def projects():
 
 @app.route('/about')
 def about():
-    return render_template('public/about.html')
+    # tools = ["Python", "Flask", "Django", "Javascript", "VueJS", "SQL"]
+    skill = [
+        { "skill" : "Python", "url" : "img/python.png"},
+        { "skill" : "Flask","url" : "img/flask.png"},
+        { "skill" : "Django","url" : "img/django.png"},
+        { "skill" : "Javascript", "url" : "img/javascript.png"},
+        { "skill" : "VueJS", "url" : "img/vuejs.png"},
+        { "skill" : "SQL", "url" : "img/sql.png"},
+        { "skill" : "GIT", "url" : "img/git.png"},
+        { "skill" : "Docker", "url" : "img/docker.png"},
+        { "skill" : "HTML5", "url" : "img/html.png"},
+        { "skill" : "CSS3", "url" : "img/css.png"},
+        { "skill" : "MySQL", "url" : "img/mysql.png"},
+        { "skill" : "GNU/Linux", "url" : "img/linux.png"},
+    ]
+    return render_template('public/about.html', skills=skill)
 
 @app.route('/contact', methods = ['GET', 'POST'])
 def contact():
