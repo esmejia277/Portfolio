@@ -6,8 +6,8 @@ from app.models import Contact, Project, db
 from app.forms import ContactForm
 from sqlalchemy import desc
 
-@app.route('/')
-def about():
+@app.route('/', methods = ["GET", "POST"])
+def index():
     skill = [
         { "skill" : "Python", "url" : "img/python.png"},
         { "skill" : "Flask","url" : "img/flask.png"},
