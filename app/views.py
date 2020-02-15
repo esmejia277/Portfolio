@@ -7,17 +7,7 @@ from app.forms import ContactForm
 from sqlalchemy import desc
 
 @app.route('/')
-def index():
-    return render_template('public/index.html')
-
-@app.route('/projects')
-def projects():
-    project = Project.query.order_by(Project.programming_language.desc())
-    return render_template('public/projects.html', project = project)
-
-@app.route('/about')
 def about():
-    # tools = ["Python", "Flask", "Django", "Javascript", "VueJS", "SQL"]
     skill = [
         { "skill" : "Python", "url" : "img/python.png"},
         { "skill" : "Flask","url" : "img/flask.png"},
@@ -32,11 +22,9 @@ def about():
         { "skill" : "MySQL", "url" : "img/mysql.png"},
         { "skill" : "GNU/Linux", "url" : "img/linux.png"},
     ]
-    return render_template('public/about.html', skills=skill)
 
-@app.route('/contact', methods = ['GET', 'POST'])
-def contact():
     form = ContactForm()
+
     if form.validate_on_submit():
         name = request.form.get('name')
         email = request.form.get('email')
@@ -59,5 +47,5 @@ def contact():
             html= html_message
         )
         mail.send(message=message_email)
-        #formulario enviado con exito, alert
-    return render_template('public/contact.html', form = form)
+        
+    return render_template('public/index.html', skills=skill, form=form)

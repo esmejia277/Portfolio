@@ -20,7 +20,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <!-- <a class="navbar-brand" href="/"> Portafolio </a> -->
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
+    <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/">
           <img class="navbar-icon" src="{{ url_for('static', filename='icons/053-home.png')}}" alt="icon" />
@@ -45,7 +45,7 @@
           Contact
         </a>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </nav>
 
@@ -53,6 +53,11 @@
   {% block content %}
   {% endblock content %}
 </body>
+
+{% block footer %}
+{% endblock footer %}
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
