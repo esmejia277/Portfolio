@@ -1,19 +1,6 @@
 * {
     font-family: 'Fira Code', monospace !important;
-}
-
-.card-projects {
-    display: flex;
-    text-align: center;
-    margin: 40px 15px 15px  15px;
-    border-width: 6px;
-    border-radius: 25px;
-    height: 90%;
-}
-
-.all-cards, .skills {
-    display: flex;
-    justify-content: center;
+    font-size: 12px;
 }
 
 a {
@@ -27,7 +14,7 @@ a:hover {
 
 .social-media-icon {
     border-radius: 50%;
-    width: 80px;
+    width: 40px;
     margin: 10px;
 }
 
@@ -37,30 +24,18 @@ a:hover {
     overflow-wrap: break-word;
 }
 
-.social-media {
-    margin-top: 30px;
-}
 
-
-
-
-.navbar-icon {
+/* .navbar-icon {
     width: 25px;
     filter: brightness(0) invert(1);
-}
+} */
 
 
 .skills-img {
     display: flex;
-    /* width: 80%; */
     margin: auto;
 }
 
-.card-about {
-    display: flex;
-    margin: 40px 15px 15px  15px;
-    border: none;
-}
 
 .esteban-photo {
     display: flex;
@@ -91,3 +66,7 @@ a:hover {
         
     }
   }
+
+.employment {
+    margin: 65px;
+}

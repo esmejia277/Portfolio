@@ -8,4 +8,3 @@ app.config.from_object(Config)
 mail = Mail(app)
 
 from app import views
-from app import admin_views

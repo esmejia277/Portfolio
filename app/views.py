@@ -8,21 +8,6 @@ from sqlalchemy import desc
 
 @app.route('/', methods = ["GET", "POST"])
 def index():
-    skill = [
-        { "skill" : "Python", "url" : "img/python.png"},
-        { "skill" : "Flask","url" : "img/flask.png"},
-        { "skill" : "Django","url" : "img/django.png"},
-        { "skill" : "Javascript", "url" : "img/javascript.png"},
-        { "skill" : "VueJS", "url" : "img/vuejs.png"},
-        { "skill" : "SQL", "url" : "img/sql.png"},
-        { "skill" : "GIT", "url" : "img/git.png"},
-        { "skill" : "Docker", "url" : "img/docker.png"},
-        { "skill" : "HTML5", "url" : "img/html.png"},
-        { "skill" : "CSS3", "url" : "img/css.png"},
-        { "skill" : "MySQL", "url" : "img/mysql.png"},
-        { "skill" : "GNU/Linux", "url" : "img/linux.png"},
-    ]
-
     form = ContactForm()
 
     if form.validate_on_submit():
@@ -47,5 +32,5 @@ def index():
             html= html_message
         )
         mail.send(message=message_email)
-        
-    return render_template('public/index.html', skills=skill, form=form)
+    
+    return render_template('index.html', form=form)
