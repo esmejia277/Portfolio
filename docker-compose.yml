@@ -1,0 +1,11 @@
+version: "3.5"
+services:
+    flask:
+        build: ./flask
+        container_name: flask
+        env_file: 
+            - ./flask/.env
+        volumes:
+            - ./flask:/app
+        ports:
+            - "5000:5000"
