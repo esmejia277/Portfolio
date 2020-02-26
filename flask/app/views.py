@@ -13,9 +13,17 @@ def index():
     if form.validate_on_submit():
         name = request.form.get('name')
         email = request.form.get('email')
+        country_code = request.form.get('country_code')
+        telephone_number = request.form.get('telephone_number')
         message = request.form.get('message')
 
-        reg = Contact(name = name, email = email, message = message)
+        reg = Contact(
+            name = name,
+            country_code = country_code,
+            telephone_number = telephone_number, 
+            email = email,
+            message = message
+        )
         db.session.add(reg)
         db.session.commit()
 
@@ -23,9 +31,11 @@ def index():
             <h1>New message from Portfolio!</h1>
             <h3>Contact data:</h3>
             <p>Name: {}</p>
+            <p>Country code: {}</p>
+            <p>Telephone number: {}</p>
             <p>Email: {}</p>
             <p>Message: {}</p>
-        """.format(name, email, message)
+        """.format(name, country_code, telephone_number,email, message)
         
         message_email = Message(subject="New contact",
             recipients=["estebanmejia277@gmail.com"],
