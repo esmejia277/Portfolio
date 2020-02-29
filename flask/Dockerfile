@@ -5,5 +5,9 @@ RUN apt-get install sqlite3 -y
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["run.py"]
+
+#For deployment
+# CMD ["uwsgi", "app.ini"]
+
+#For development
+CMD ["python", "run.py"]

@@ -3,9 +3,21 @@ services:
     flask:
         build: ./flask
         container_name: flask
+        restart: always
         env_file: 
             - ./flask/.env
         volumes:
             - ./flask:/app
+        
+        # for deployment
+        expose: 
+            - 8080
+        # for development 
         ports:
             - "5000:5000"
+    nginx:
+        build: ./nginx
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"
