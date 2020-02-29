@@ -17,15 +17,15 @@ def index():
         telephone_number = request.form.get('telephone_number')
         message = request.form.get('message')
 
-        reg = Contact(
-            name = name,
-            country_code = country_code,
-            telephone_number = telephone_number, 
-            email = email,
-            message = message
-        )
-        db.session.add(reg)
-        db.session.commit()
+        # reg = Contact(
+        #     name = name,
+        #     country_code = country_code,
+        #     telephone_number = telephone_number, 
+        #     email = email,
+        #     message = message
+        # )
+        # db.session.add(reg)
+        # db.session.commit()
 
         html_message = """
             <h1>New message from Portfolio!</h1>
@@ -42,5 +42,5 @@ def index():
             html= html_message
         )
         mail.send(message=message_email)
-    
+        return render_template("success.html")
     return render_template('index.html', form=form)
