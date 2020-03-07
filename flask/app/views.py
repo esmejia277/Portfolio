@@ -2,9 +2,12 @@ from flask import render_template, redirect, request
 from flask_mail import Message
 from app import mail
 from app import app
-from app.models import Contact, Project, db
 from app.forms import ContactForm
-from sqlalchemy import desc
+from app.db import DatabaseConnection
+
+import os
+
+db = DatabaseConnection()
 
 @app.route('/', methods = ["GET", "POST"])
 def index():
@@ -12,35 +15,44 @@ def index():
 
     if form.validate_on_submit():
         name = request.form.get('name')
-        email = request.form.get('email')
         country_code = request.form.get('country_code')
         telephone_number = request.form.get('telephone_number')
+        email = request.form.get('email')
         message = request.form.get('message')
 
-        # reg = Contact(
-        #     name = name,
-        #     country_code = country_code,
-        #     telephone_number = telephone_number, 
-        #     email = email,
-        #     message = message
-        # )
-        # db.session.add(reg)
-        # db.session.commit()
+        sql = """ INSERT INTO Contact 
+            (name, country_code, telephone_number, email, message) 
+            VALUES (%s,%s,%s,%s,%s) """
 
-        html_message = """
-            <h1>New message from Portfolio!</h1>
-            <h3>Contact data:</h3>
-            <p>Name: {}</p>
-            <p>Country code: {}</p>
-            <p>Telephone number: {}</p>
-            <p>Email: {}</p>
-            <p>Message: {}</p>
-        """.format(name, country_code, telephone_number,email, message)
+        try:
+            db.get_cursor().execute(sql,
+                (name, country_code, telephone_number, email, message)
+            )
+            db.commit()
+            db.close_Cursor()
+            db.close_connection()
+            print("INSERTE!!!!!!!!!!!!")
+        except Exception as error:
+            print("Database Error", error)
+    
+        try:
+            html_message = """
+                <h1>New message from Portfolio!</h1>
+                <h3>Contact data:</h3>
+                <p>Name: {}</p>
+                <p>Country code: {}</p>
+                <p>Telephone number: {}</p>
+                <p>Email: {}</p>
+                <p>Message: {}</p>
+            """.format(name, country_code, telephone_number,email, message)
         
-        message_email = Message(subject="New contact",
-            recipients=["estebanmejia277@gmail.com"],
-            html= html_message
-        )
-        mail.send(message=message_email)
+            message_email = Message(subject="New contact",
+                recipients= [os.getenv("MAIL_RECIPIENTS")],
+                html= html_message
+            )
+            mail.send(message=message_email)
+        except Exception as error:
+            print("Mail delivery error", error)
+
         return render_template("success.html")
     return render_template('index.html', form=form)
