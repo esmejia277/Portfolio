@@ -31,7 +31,6 @@ def index():
             db.commit()
             db.close_Cursor()
             db.close_connection()
-            print("INSERTE!!!!!!!!!!!!")
         except Exception as error:
             print("Database Error", error)
     

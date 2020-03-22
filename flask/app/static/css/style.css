@@ -1,9 +1,7 @@
 * {
     font-family: 'Fira Code', monospace !important;
-    font-size: 12px;
+    font-size: 14px;
 }
-
-
 
 .social-media-icon {
     border-radius: 50%;
@@ -23,13 +21,6 @@
     overflow-wrap: break-word;
 }
 
-
-/* .navbar-icon {
-    width: 25px;
-    filter: brightness(0) invert(1);
-} */
-
-
 .skills-img {
     display: flex;
     margin: auto;
@@ -43,6 +34,22 @@
     margin-top:60px;
     margin-bottom: 30px;
 }
+
+.card {
+    border-color: grey;
+    border-width: 2px;
+    -webkit-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.75);
+    width: 23rem;
+    height: 480px;
+    border-radius: 25px;
+}
+
+.card img {
+    border-radius: 25px 25px 0px 0px;
+}
+
 
 @media only screen and (max-width: 600px) {
     .head-form > h1 {
@@ -66,6 +73,11 @@
     .form-group p {
         text-align: left;
     }
+
+    .about-me {
+        
+    }
+
   }
 
   @media only screen and (max-width: 361px) {

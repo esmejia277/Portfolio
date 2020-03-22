@@ -6,8 +6,6 @@ class Config(object):
     DEBUG = True
     TESTING = False
     TEMPLATES_AUTO_RELOAD = True
-    SQLALCHEMY_DATABASE_URI = f'sqlite:///{os.path.abspath(os.getcwd())}/database.db'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # mail configurations
     MAIL_SERVER = 'smtp.live.com'
