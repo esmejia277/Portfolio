@@ -15,6 +15,4 @@ tcl
 .env
 env
 
-# Database
-database.db
-sqlite3
+mysql/data

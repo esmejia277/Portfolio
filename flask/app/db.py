@@ -5,7 +5,7 @@ class DatabaseConnection:
     
     def __init__(self):
         config = {
-            "user": "root",
+            "user": os.getenv("MYSQL_USER"),
             "password": os.getenv("MYSQL_ROOT_PASSWORD"),
             "host": "db",
             "port": "3306",

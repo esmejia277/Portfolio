@@ -21,12 +21,14 @@ services:
     mysql:
         image: mysql:5.7
         container_name: mysql
+        restart: always
         env_file:
             - ./.env
         ports: 
             - "32000:3306"
-        # volumes:
-        #     - ./db:/docker-entrypoint-initdb.d/:ro
+        volumes:
+            - ./mysql/scripts:/docker-entrypoint-initdb.d/
+            - ./mysql/data:/var/lib/mysql
     
     nginx:
         build: ./nginx
