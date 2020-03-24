@@ -5,14 +5,8 @@ __pycache__
 # Editor
 .vscode
 
-# Virtualenv
-venv
-Lib
-Scripts
-tcl
-
 # Enviroment files
 .env
-env
 
+# Database
 mysql/data

@@ -8,6 +8,9 @@ services:
             - ./.env
         volumes:
             - ./flask:/app
+        depends_on: 
+            - mysql
+            - nginx
         
         # for deployment
         expose: 
