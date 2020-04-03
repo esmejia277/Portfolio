@@ -9,12 +9,6 @@
     margin: 10px;
 }
 
-.social-media-icon:hover {
-    -webkit-box-shadow: 10px 7px 41px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 7px 41px 2px rgba(0,0,0,0.75);
-    box-shadow: 10px 7px 41px 2px rgba(0,0,0,0.75);
-}
-
 .form {
     border-radius: 25px;
     padding: 50px;

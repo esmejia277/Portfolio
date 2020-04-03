@@ -272,11 +272,26 @@
 
 {% block footer %}
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      var messages = {{ messages | safe }};
+      for (var i=0; i<messages.length; i++) {
+        Swal.fire(
+        "Well done!",
+        messages[i],
+        'success'
+        )
+      }
+    </script>
+  {% endif %}
+{% endwith %}
+
 <footer class="pt-4" style="background-color: #d5dbd6;">
   <div class="container-fluid text-center text-md-left text-black">
     <div class="row d-flex justify-content-center">
       <div class="col-xs-12 col-md-8">
-        <form class="m-3" method="POST" action="/" onsubmit="showMessage('Correcto', 'Se ha enviado correctamente el formulario', 'error')">
+        <form class="m-3" method="POST" action="/">
           <h1 class="text-center">Type your message!</h1>
           {{ form.csrf_token }}
           <div class="m-4">

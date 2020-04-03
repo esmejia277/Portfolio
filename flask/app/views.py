@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, flash
 from flask_mail import Message
 from app import mail
 from app import app
@@ -31,6 +31,7 @@ def index():
             db.commit()
             db.close_Cursor()
             db.close_connection()
+            flash("Data saved successfully")
         except Exception as error:
             print("Database Error", error)
     
@@ -46,12 +47,13 @@ def index():
             """.format(name, country_code, telephone_number,email, message)
         
             message_email = Message(subject="New contact",
-                recipients= [os.getenv("MAIL_RECIPIENTS")],
+                recipients= ["estebanmejia277@gmail.com"],
                 html= html_message
             )
             mail.send(message=message_email)
+            flash("Submitted data successfully")
         except Exception as error:
             print("Mail delivery error", error)
 
-        return render_template("success.html")
+        # return render_template("success.html")
     return render_template('index.html', form=form)
