@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request, flash
+from flask import render_template, redirect, request, flash, url_for
 from flask_mail import Message
 from app import mail
 from app import app
@@ -52,6 +52,7 @@ def index():
             )
             mail.send(message=message_email)
             flash("Submitted data successfully")
+            return redirect(url_for('index'))
         except Exception as error:
             print("Mail delivery error", error)
 
